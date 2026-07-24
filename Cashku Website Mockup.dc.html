@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="brandguide/logo-icon.png">
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect width="120" height="120" fill="#08197C"/><text x="60" y="68" font-family="sans-serif" font-size="40" fill="#00EBCF" text-anchor="middle">C</text></svg></template>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -25,6 +27,12 @@
     @keyframes pulseRing { 0%{ transform: scale(0.8); opacity: .7; } 100%{ transform: scale(1.9); opacity: 0; } }
     @keyframes dashFlow { to { stroke-dashoffset: -60; } }
     @keyframes marqueeScroll { from{ transform: translateX(0); } to{ transform: translateX(-50%); } }
+    @keyframes hitlSpin { from{ transform: rotate(0deg); } to{ transform: rotate(360deg); } }
+    @keyframes hitlOrbitAI { 0%,100%{ transform: translate(-90px,-30px) scale(1); } 50%{ transform: translate(-90px,-30px) scale(1.08); } }
+    @keyframes hitlOrbitHuman { 0%,100%{ transform: translate(90px,30px) scale(1); } 50%{ transform: translate(90px,30px) scale(1.08); } }
+    @keyframes hitlPulseDot { 0%,100%{ transform: scale(1); opacity:1; } 50%{ transform: scale(2.4); opacity:0.4; } }
+    @keyframes neuralNode { 0%,100%{ opacity:0.4; r:4; } 50%{ opacity:1; } }
+    @keyframes neuralLine { 0%,100%{ opacity:0.15; } 50%{ opacity:0.55; } }
     @keyframes floatSlow { 0%,100%{ transform: translateY(0px); } 50%{ transform: translateY(-12px); } }
     @keyframes fadePulse { 0%,100%{ opacity: 1; } 50%{ opacity: .4; } }
     @keyframes spin18 { to { transform: rotate(360deg); } }
@@ -57,15 +65,35 @@
       <a href="#faqs" class="cku-navlink" style="color:#3a4270; font-weight:500; font-size:15px;">FAQs</a>
       <a href="#contact" class="cku-navlink" style="color:#3a4270; font-weight:500; font-size:15px;">Contact</a>
     </div>
-    <a href="#download" class="cku-btn" style="background:#08197C; color:#FFFFFF; font-weight:700; font-size:14px; padding:11px 22px; border-radius:100px; white-space:nowrap;">Get the App</a>
+    <a href="#hero" class="cku-btn" style="background:#08197C; color:#FFFFFF; font-weight:700; font-size:14px; padding:11px 22px; border-radius:100px; white-space:nowrap;">Get the App</a>
   </div>
 
   <!-- ============ HERO ============ -->
-  <div onMouseMove="{{ heroMouseMove }}" onMouseLeave="{{ heroMouseLeave }}" style="position:relative; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:160px 6% 100px; text-align:center; overflow:hidden;">
+  <div id="hero" onMouseMove="{{ heroMouseMove }}" onMouseLeave="{{ heroMouseLeave }}" style="position:relative; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:160px 6% 100px; text-align:center; overflow:hidden;">
     <div style="position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size:64px 64px; animation:gridPan 12s linear infinite; opacity:0.5;"></div>
     <div style="position:absolute; width:520px; height:520px; border-radius:50%; background:radial-gradient(circle, rgba(255,60,60,0.32), transparent 70%); filter:blur(10px); top:-120px; left:-120px; animation:auroraFloat1 7s ease-in-out infinite;"></div>
     <div style="position:absolute; width:520px; height:520px; border-radius:50%; background:radial-gradient(circle, rgba(60,230,120,0.4), transparent 70%); filter:blur(10px); bottom:-140px; right:-100px; animation:auroraFloat2 8s ease-in-out infinite;"></div>
     <div style="position:absolute; width:380px; height:380px; border-radius:50%; background:radial-gradient(circle, rgba(60,120,255,0.3), transparent 70%); filter:blur(10px); bottom:10%; left:8%; animation:auroraFloat3 9s ease-in-out infinite;"></div>
+    <svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" style="position:absolute; inset:0; width:100%; height:100%; opacity:0.5; pointer-events:none;">
+      <g stroke="#00EBCF" stroke-width="1">
+        <line x1="140" y1="150" x2="360" y2="260" style="opacity:0.35; animation:neuralLine 4s ease-in-out infinite;"/>
+        <line x1="360" y1="260" x2="620" y2="140" style="opacity:0.3; animation:neuralLine 5s ease-in-out infinite .4s;"/>
+        <line x1="360" y1="260" x2="560" y2="440" style="opacity:0.25; animation:neuralLine 4.5s ease-in-out infinite .8s;"/>
+        <line x1="620" y1="140" x2="880" y2="220" style="opacity:0.3; animation:neuralLine 5.5s ease-in-out infinite 1.2s;"/>
+        <line x1="560" y1="440" x2="880" y2="220" style="opacity:0.25; animation:neuralLine 4.2s ease-in-out infinite .6s;"/>
+        <line x1="880" y1="220" x2="1080" y2="380" style="opacity:0.3; animation:neuralLine 4.8s ease-in-out infinite 1s;"/>
+        <line x1="560" y1="440" x2="760" y2="560" style="opacity:0.22; animation:neuralLine 5.2s ease-in-out infinite .3s;"/>
+      </g>
+      <g fill="#00EBCF">
+        <circle cx="140" cy="150" r="4" style="animation:neuralNode 3s ease-in-out infinite;"/>
+        <circle cx="360" cy="260" r="5" style="animation:neuralNode 3.4s ease-in-out infinite .5s;"/>
+        <circle cx="620" cy="140" r="4" style="animation:neuralNode 3.8s ease-in-out infinite 1s;"/>
+        <circle cx="560" cy="440" r="5" style="animation:neuralNode 3.2s ease-in-out infinite .2s;"/>
+        <circle cx="880" cy="220" r="4" style="animation:neuralNode 4s ease-in-out infinite .7s;"/>
+        <circle cx="1080" cy="380" r="5" style="animation:neuralNode 3.6s ease-in-out infinite 1.3s;"/>
+        <circle cx="760" cy="560" r="4" style="animation:neuralNode 3.3s ease-in-out infinite .9s;"/>
+      </g>
+    </svg>
     <sc-if value="{{ heroHovering }}" hint-placeholder-val="{{ false }}">
       <div style="position:absolute; width:320px; height:320px; border-radius:50%; background:radial-gradient(circle, rgba(160,160,170,0.4), transparent 70%); filter:blur(14px); left:{{ heroPointerX }}px; top:{{ heroPointerY }}px; transform:translate(-50%,-50%); pointer-events:none; transition:left .12s ease-out, top .12s ease-out;"></div>
     </sc-if>
@@ -89,11 +117,11 @@
       Malaysia's First <span style="color:#00EBCF;">AI-Powered</span> Investment Platform
     </h1>
     <p style="position:relative; color:rgba(255,255,255,0.72); font-size:clamp(16px,2vw,20px); line-height:1.6; max-width:640px; margin:0 0 40px; font-weight:500;">
-      Drive your financial future with Cashku! Intelligent unit trust distribution and portfolio management, ready to execute your financial goals!
+      Drive your financial future with <strong>Cashku</strong>! Intelligent unit trust distribution and portfolio management, ready to execute your financial goals!
     </p>
     <div style="position:relative; display:flex; gap:16px; flex-wrap:wrap; justify-content:center;">
-      <a href="#download" class="cku-btn" style="background:#00EBCF; color:#08197C; font-weight:700; font-size:15px; padding:16px 30px; border-radius:100px;">Download on App Store</a>
-      <a href="#download" class="cku-btn" style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.25); color:#FFFFFF; font-weight:700; font-size:15px; padding:16px 30px; border-radius:100px;">Get it on Google Play</a>
+      <a href="https://apps.apple.com/my/app/cashku/id1624891982" target="_blank" rel="noopener" class="cku-btn" style="display:flex; align-items:center;"><img src="uploads/appstore.png" alt="Download on the App Store" style="height:52px; object-fit:contain;" /></a>
+      <a href="https://play.google.com/store/apps/details?id=my.cashku.android" target="_blank" rel="noopener" class="cku-btn" style="display:flex; align-items:center;"><img src="uploads/google play.png" alt="Get it on Google Play" style="height:52px; object-fit:contain;" /></a>
     </div>
   </div>
 
@@ -124,6 +152,19 @@
   <!-- ============ HUMAN-IN-THE-LOOP AI ============ -->
   <div style="position:relative; background:#050F49; padding:120px 6%; overflow:hidden;">
     <div style="position:absolute; width:600px; height:600px; border-radius:50%; background:radial-gradient(circle, rgba(0,235,207,0.16), transparent 70%); top:-200px; right:-160px; animation:auroraFloat1 12s ease-in-out infinite;"></div>
+    <div style="position:absolute; top:50%; left:50%; width:640px; height:640px; margin:-320px 0 0 -320px; opacity:0.5; pointer-events:none;">
+      <div style="position:absolute; inset:0; border-radius:50%; border:1px dashed rgba(0,235,207,0.35); animation:hitlSpin 18s linear infinite;"></div>
+      <div style="position:absolute; top:50%; left:50%; width:150px; height:150px; margin:-75px; border-radius:32px; background:rgba(0,235,207,0.12); border:1px solid rgba(0,235,207,0.4); display:flex; align-items:center; justify-content:center; animation:hitlOrbitAI 6s ease-in-out infinite;">
+        <span style="color:#00EBCF; font-family:'Quicksand',sans-serif; font-weight:700; font-size:44px;">AI</span>
+      </div>
+      <div style="position:absolute; top:50%; left:50%; width:150px; height:150px; margin:-75px; border-radius:50%; background:rgba(176,38,255,0.14); border:1px solid rgba(176,38,255,0.4); display:flex; align-items:center; justify-content:center; animation:hitlOrbitHuman 6s ease-in-out infinite;">
+        <span style="color:#D6A6FF; font-family:'Quicksand',sans-serif; font-weight:700; font-size:36px;">You</span>
+      </div>
+      <svg width="640" height="640" style="position:absolute; inset:0;" viewBox="0 0 320 320" fill="none">
+        <circle cx="160" cy="160" r="100" stroke="rgba(0,235,207,0.3)" stroke-width="2" stroke-dasharray="8 10" style="animation:dashFlow 3s linear infinite;"/>
+      </svg>
+      <div style="position:absolute; top:50%; left:50%; width:14px; height:14px; margin:-7px; border-radius:50%; background:#00EBCF; box-shadow:0 0 16px 4px rgba(0,235,207,0.6); animation:hitlPulseDot 3s ease-in-out infinite;"></div>
+    </div>
     <div style="position:relative; max-width:1180px; margin:0 auto; display:flex; flex-wrap:wrap; gap:72px; align-items:center;">
       <div style="flex:1 1 420px;">
         <p style="color:#89E5D3; font-weight:700; font-size:14px; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 16px;">Agentic, not autonomous</p>
@@ -208,7 +249,7 @@
     <p style="text-align:center; color:#8a92b8; font-weight:700; font-size:19.5px; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 32px;">As Featured On</p>
     <div style="overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent); mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);">
       <div style="display:flex; width:max-content; gap:56px; animation:marqueeScroll 26s linear infinite;">
-        <sc-for list="{{ pressLogosDoubled }}" as="logo" hint-placeholder-count="18">
+        <sc-for list="{{ pressLogosDoubled }}" as="logo" hint-placeholder-count="36">
           <img src="{{ logo.src }}" alt="{{ logo.alt }}" style="height:32px; max-width:140px; object-fit:contain; opacity:0.6; filter:grayscale(1); white-space:nowrap;" />
         </sc-for>
       </div>
@@ -468,7 +509,7 @@ class Component extends DCLogic {
       howSteps,
       supportHighlights,
       complianceBadges,
-      pressLogosDoubled: [...pressLogos, ...pressLogos],
+      pressLogosDoubled: [...pressLogos, ...pressLogos, ...pressLogos, ...pressLogos],
       memberships,
       partners,
       awards,
