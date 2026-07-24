@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: 'Quicksand', sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #00D1B3; text-decoration: none; }
+    a:hover { color: #00EBCF; }
+    * { box-sizing: border-box; }
+    ::selection { background: #00EBCF; color: #08197C; }
+  </style>
+</helmet>
+
+<div style="background:#FFFFFF;">
+
+  <div style="position:fixed; top:0; left:0; right:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:14px 5%; background:#FFFFFF; box-shadow:0 2px 16px rgba(8,25,124,0.08);">
+    <a href="Cashku Website Mockup.dc.html" style="display:flex; align-items:center; gap:10px;">
+      <img src="brandguide/logo-icon.png" alt="Cashku" style="width:34px; height:34px; object-fit:contain;">
+      <span style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:22px; letter-spacing:-0.5px; color:#08197C;">cashku</span>
+    </a>
+    <div style="display:flex; align-items:center; gap:28px; flex-wrap:wrap;">
+      <a href="Cashku Website Mockup.dc.html#features" style="color:#3a4270; font-weight:500; font-size:15px;">Features</a>
+      <a href="Cashku Website Mockup.dc.html#save-invest" style="color:#3a4270; font-weight:500; font-size:15px;">Save &amp; Invest</a>
+      <a href="Cashku Website Mockup.dc.html#how-it-works" style="color:#3a4270; font-weight:500; font-size:15px;">How it Works</a>
+      <a href="Cashku FAQ Page.dc.html" style="color:#08197C; font-weight:700; font-size:15px;">FAQs</a>
+      <a href="Cashku Website Mockup.dc.html#contact" style="color:#3a4270; font-weight:500; font-size:15px;">Contact</a>
+    </div>
+    <a href="Cashku Website Mockup.dc.html#download" style="background:#08197C; color:#FFFFFF; font-weight:700; font-size:14px; padding:11px 22px; border-radius:100px; white-space:nowrap;">Get the App</a>
+  </div>
+
+  <div style="background:linear-gradient(120deg,#08197C,#0E35AF); padding:150px 6% 72px; text-align:center;">
+    <p style="color:#89E5D3; font-weight:700; font-size:14px; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 16px;">Support Center</p>
+    <h1 style="color:#FFFFFF; font-family:'Quicksand',sans-serif; font-weight:700; font-size:clamp(32px,5vw,52px); margin:0; line-height:1.15;">Frequently Asked Questions</h1>
+  </div>
+
+  <div style="max-width:900px; margin:0 auto; padding:72px 6% 120px;">
+    <sc-for list="{{ categories }}" as="cat" hint-placeholder-count="8">
+      <div style="margin-bottom:52px;">
+        <h2 style="color:#08197C; font-family:'Quicksand',sans-serif; font-weight:700; font-size:24px; margin:0 0 20px; padding-bottom:12px; border-bottom:2px solid #00EBCF; display:inline-block;">{{ cat.name }}</h2>
+        <div style="display:flex; flex-direction:column; gap:12px; margin-top:8px;">
+          <sc-for list="{{ cat.items }}" as="faq" hint-placeholder-count="4">
+            <div style="background:#F4F6FB; border-radius:14px; overflow:hidden;">
+              <div onClick="{{ faq.toggle }}" style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 24px; cursor:pointer;">
+                <span style="color:#08197C; font-weight:700; font-size:16px;">{{ faq.q }}</span>
+                <span style="color:#00D1B3; font-size:20px; font-weight:700; flex-shrink:0; transform:{{ faq.rotate }}; transition:transform 0.2s;">+</span>
+              </div>
+              <sc-if value="{{ faq.open }}" hint-placeholder-val="{{ false }}">
+                <div style="padding:0 24px 22px; color:#5a6488; font-size:15px; line-height:1.75; font-weight:500; white-space:pre-line;">{{ faq.a }}</div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+
+    <div style="background:#F4F6FB; border-radius:20px; padding:40px; text-align:center; margin-top:24px;">
+      <h3 style="color:#08197C; font-family:'Quicksand',sans-serif; font-weight:700; font-size:20px; margin:0 0 10px;">Still have questions?</h3>
+      <p style="color:#5a6488; font-size:15px; margin:0 0 22px; font-weight:500;">Our support advisors are available Monday to Friday, 10am to 6pm.</p>
+      <a href="Cashku Website Mockup.dc.html#contact" style="display:inline-block; background:#08197C; color:#FFFFFF; font-weight:700; font-size:14.5px; padding:14px 28px; border-radius:100px;">Contact Us</a>
+    </div>
+  </div>
+
+  <div style="background:#050F49; padding:40px 6%; text-align:center;">
+    <p style="color:rgba(255,255,255,0.5); font-size:13px; margin:0 0 8px;">&copy; 2026 Advisonomics Sdn Bhd. All rights reserved.</p>
+    <div style="display:flex; gap:18px; justify-content:center; flex-wrap:wrap;">
+      <a href="https://cashku.my/terms-conditions/" style="color:rgba(255,255,255,0.6); font-size:13px;">Terms &amp; Conditions</a>
+      <a href="https://cashku.my/privacy-policy/" style="color:rgba(255,255,255,0.6); font-size:13px;">Privacy Policy</a>
+      <a href="https://cashku.my/direct-debit-terms-and-conditions/" style="color:rgba(255,255,255,0.6); font-size:13px;">Direct Debit Terms</a>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open: {} };
+
+  toggle(key) {
+    this.setState(s => ({ open: { ...s.open, [key]: !s.open[key] } }));
+  }
+
+  renderVals() {
+    const raw = [
+      { name: 'Account Management', items: [
+        { q: 'Who can open an account with Cashku?', a: 'Any individuals aged 18 years old and above with a valid MyKad and have a banking account.' },
+        { q: 'How to open an account with Cashku?', a: 'You can download the Cashku mobile app and click on the \u2018Get Started\u2019 button to create a Cashku account.' },
+        { q: 'Why do we need to verify your identity?', a: 'Your security matters to us. As required by the Securities Commission of Malaysia (SC) to verify your identity, we require you to upload a copy of your NRIC as part of our eKYC requirements to authenticate and validate the identity of our clients.' },
+        { q: 'Why do we need to collect your personal information?', a: 'Your personal information is collected primarily for the purpose of verifying your identity, complying with the requirements of all applicable laws and regulations, and understanding your financial objectives.' },
+        { q: 'Is my personal information with Cashku safe?', a: 'In accordance with the PDPA and other relevant data protection and privacy law, your personal information is securely stored in our databases. The same responsibility of confidentiality and security applies wherever the business shares such information in providing our services to you. Please check our Privacy Policy for more details.' },
+        { q: 'How to update my personal details?', a: 'Step 1: Click on \u201cProfile\u201d tab\nStep 2: Click on \u201cEdit Profile\u201d\nStep 3: Proceed with your changes' },
+        { q: 'What do I need to do if I forgot my password or my account has been suspended?', a: 'If your account has been suspended due to exceeding allowable password attempts during login, please wait 5 minutes and perform Forgot Password:\nStep 1: Click \u201cForgot Password?\u201d on the login page\nStep 2: Enter your registered email address\nStep 3: Check your email and click reset password\nStep 4: Enter new password' },
+        { q: 'How can I delete my account?', a: 'You can delete your account by contacting Cashku Support Advisor via WhatsApp or by emailing hello@cashku.my.' },
+      ]},
+      { name: 'Cashku Support', items: [
+        { q: 'Who do I contact should I need help?', a: 'You can contact us via WhatsApp or by email at hello@cashku.my. Cashku Support Advisors are available Monday to Friday between 10:00am to 6:00pm, excluding public holidays.' },
+      ]},
+      { name: 'Security', items: [
+        { q: 'How secure is Cashku?', a: 'We deploy multiple layers of authentication in every component of our systems to ensure your accounts are secure, money safe, and information confidential. We safeguard your data as if it were our own.' },
+        { q: 'Where is my money kept?', a: 'Your assets are held in a separate client trust account owned by Astute Fund Management Berhad\u2019s appointed trustees \u2014 Maybank Trustees Berhad for Cashku Save, and Maybank Trustees Berhad and CIMB Commerce Trustee Berhad for Cashku Invest. This protects you in the unlikely event that Cashku goes bankrupt, as customer funds are unmingled with Cashku.' },
+      ]},
+      { name: 'Financial Literacy', items: [
+        { q: 'What is Cashku\u2019s Financial Literacy Course?', a: 'We are an HRD Corp Certified Training Provider, offering Financial Literacy courses in Bahasa Malaysia, English, and Mandarin \u2014 practical, interactive courses on personal finance to empower you towards financial independence.' },
+        { q: 'What is covered in Cashku\u2019s Financial Literacy Course?', a: 'Three levels: Beginner (fundamentals of financial planning, cash flow, savings, inflation, and risk/return), Intermediate (diversification, budgeting, net worth, and debt management), and Advanced (emergency funds, efficient market hypothesis, passive vs active investment, and compound interest).' },
+        { q: 'How to book the Financial Literacy Courses?', a: 'Step 1: On the Dashboard, click \u201cFinancial Literacy\u201d\nStep 2: Click \u201cBook Financial Literacy Courses\u201d\nStep 3: Choose your language and level\nStep 4: Select a date\nStep 5: Select a time\nStep 6: Confirm' },
+        { q: 'How to cancel the Financial Literacy Course?', a: 'You may cancel through the confirmation email \u2014 find the \u2018Make changes to this event\u2019 section and click \u2018Cancel\u2019. A confirmation email is sent once your registration is cancelled.' },
+      ]},
+      { name: 'Invest with Cashku', items: [
+        { q: 'What is Cashku Save?', a: 'Cashku Save offers a Shariah-compliant money market fund (Astute Dana Al-Kanz) that lets you earn better, higher returns than Fixed Deposits. Contact us via email or WhatsApp for any queries.' },
+        { q: 'What is Cashku Invest?', a: 'Cashku Invest provides diversified funds with zero sales charge for all risk levels. Before investing, a risk tolerance assessment categorizes you as Conservative, Moderate, or Aggressive, with instant results.' },
+        { q: 'What are the benefits of investing in Cashku?', a: '\u2022 User-friendly and secure platform, start from RM10\n\u2022 No lock-in period\n\u2022 No early withdrawal penalty\n\u2022 Create and track financial goals\n\u2022 Advisor support included' },
+        { q: 'Is there a minimum deposit requirement or a set investment amount?', a: 'There is no set investment amount \u2014 you can invest as low as RM10 in any fund distributed by Cashku.' },
+        { q: 'How do I choose which fund to invest?', a: 'Complete the \u2018Calculate your risk tolerance\u2019 steps when signing up to identify your risk level. You can also arrange a complimentary session with an advisor if unsure.' },
+        { q: 'How many funds are available in Cashku Invest?', a: 'Currently 15 funds are available, with more onboarded over time. Find fund details in the \u2018Funds\u2019 tab.' },
+        { q: 'How do I create my investment goal?', a: 'You can create a goal at the \u2018Goals\u2019 tab \u2014 click the \u2018+\u2019 button and select the goal you want to create.' },
+        { q: 'How can I contact a Financial Advisor?', a: 'Step 1: Login to your Cashku account\nStep 2: Click \u201cProfile\u201d\nStep 3: Click \u201cContact Us\u201d\nStep 4: Click \u201cAdvisor Appointment\u201d\nStep 5: Select date & time\nStep 6: Confirm' },
+        { q: 'What should I take into consideration before investing?', a: 'Read and understand the Prospectus and Product Highlight Sheet of the fund. All investments carry risk \u2014 make your own risk assessment and seek professional advice where necessary.' },
+        { q: 'Do I need to provide any consent before I can proceed?', a: 'Yes, you must confirm you have read and understood the Product Highlight Sheet and relevant disclosure documents before investing.' },
+        { q: 'Is the fund protected by PIDM?', a: 'No \u2014 this is an investment, not a bank deposit, so it is not protected by Perbadanan Insurans Deposit Malaysia (PIDM).' },
+        { q: 'What is Shariah-compliant investment?', a: 'Investments based on Islamic finance principles \u2014 they must not involve Riba (usury), Gharar (ambiguity), or Maysir (gambling).' },
+      ]},
+      { name: 'Cooling-off and Withdrawal', items: [
+        { q: 'What is a cooling-off period?', a: 'A window of time to exercise your right to cancel your investment (without loss) after your first purchase in a particular fund. It ends 6 business days after the first successful transaction.' },
+        { q: 'Who is entitled to the cooling-off period?', a: 'Clients investing in any unit trust for the first time with Cashku, excluding staff of the management company and persons registered with an SC-approved body to deal in unit trusts.' },
+        { q: 'Can I withdraw anytime?', a: 'Yes.' },
+        { q: 'Are there charges to withdraw?', a: 'No.' },
+        { q: 'When will I receive my money after a withdrawal?', a: 'Once your withdrawal request is successfully submitted, one of our advisors will contact you within 2 working days.' },
+      ]},
+      { name: 'Sophisticated Investor and Wholesale Fund', items: [
+        { q: 'What is a Sophisticated Investor?', a: 'A client who has successfully declared themselves as a sophisticated investor, as defined under the SC\u2019s Lodge and Launch Framework guidelines and the CMSA.' },
+        { q: 'What is a Wholesale Fund?', a: 'A unit trust fund open for subscription, offered and issued only to a Sophisticated Investor.' },
+      ]},
+      { name: 'Licenses and Regulation', items: [
+        { q: 'Are you licensed by any regulators?', a: 'Yes \u2014 licensed by the Securities Commission Malaysia for Financial Planning and Dealing in Unit Trust (eCMSL/A0374/2021), and as Corporate UTS Advisers by the Federation of Investment Managers Malaysia. Also licensed by Bank Negara Malaysia as Financial Advisers, and a registered HRD Corp Training Provider.' },
+      ]},
+      { name: 'Fees', items: [
+        { q: 'What are the fees associated with Cashku?', a: 'Zero sales charge \u2014 no upfront charge.\nManagement fee \u2014 charged by the fund manager, ranging from 0.2% to 1.95% p.a. depending on the fund.\nWrap fee \u2014 for Equity and Fixed Income Funds, ranges from 1.5% to 2.5% p.a. based on assets under management; for Money Market Funds, a flat 0.3% p.a.\n\nWrap fee tiers (non-Money Market): under RM100,000 up to 2.5% p.a.; RM100,000\u2013RM250,000 up to 2.0% p.a.; above RM250,000 up to 1.5% p.a.' },
+      ]},
+    ];
+
+    const categories = raw.map((cat, ci) => ({
+      name: cat.name,
+      items: cat.items.map((f, fi) => {
+        const key = ci + '-' + fi;
+        return {
+          q: f.q,
+          a: f.a,
+          open: !!this.state.open[key],
+          rotate: this.state.open[key] ? 'rotate(45deg)' : 'rotate(0deg)',
+          toggle: () => this.toggle(key),
+        };
+      }),
+    }));
+
+    return { categories };
+  }
+}
+
+</script>
+</body>
+</html>
